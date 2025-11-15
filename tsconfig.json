@@ -4,13 +4,14 @@
         "moduleResolution": "node",
         "module": "commonjs",
         "allowSyntheticDefaultImports": true,
-        "outDir": "./dist",
+        "outDir": "./",
         "rootDir": "./",
         "strict": false,
         "esModuleInterop": true,
         "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+        "declaration": false
     },
     "include": ["*.ts"],
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules", "dist"]
 }
