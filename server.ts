@@ -7,6 +7,10 @@ export const createServer = () => {
 
     var ipservers = {};
 
+    app.get("/", (req, res) => {
+        res.send({ status: "ok", message: "EasyMC API server is running" });
+    });
+
     app.post("/authenticate", async (req, res) => {
         const response = await api.redeem(req.body.username);
         res.send({
