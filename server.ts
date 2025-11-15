@@ -1,14 +1,18 @@
 import express from "express";
 import api from "./api";
+import path from "path";
 
 export const createServer = () => {
     const app = express();
     app.use(express.json());
+    
+    // Serve static files from public directory
+    app.use(express.static(path.join(__dirname, 'public')));
 
     var ipservers = {};
 
     app.get("/", (req, res) => {
-        res.send({ status: "ok", message: "EasyMC API server is running" });
+        res.sendFile(path.join(__dirname, 'public', 'index.html'));
     });
 
     app.post("/authenticate", async (req, res) => {

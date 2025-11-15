@@ -6,12 +6,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.createServer = void 0;
 const express_1 = __importDefault(require("express"));
 const api_1 = __importDefault(require("./api"));
+const path_1 = __importDefault(require("path"));
 const createServer = () => {
     const app = (0, express_1.default)();
     app.use(express_1.default.json());
+    // Serve static files from public directory
+    app.use(express_1.default.static(path_1.default.join(__dirname, 'public')));
     var ipservers = {};
     app.get("/", (req, res) => {
-        res.send({ status: "ok", message: "EasyMC API server is running" });
+        res.sendFile(path_1.default.join(__dirname, 'public', 'index.html'));
     });
     app.post("/authenticate", async (req, res) => {
         const response = await api_1.default.redeem(req.body.username);
