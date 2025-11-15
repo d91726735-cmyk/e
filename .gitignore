@@ -1,0 +1,11 @@
+node_modules/
+*.js
+!start.js
+!server.js
+!index.js
+!api.js
+!interfaces.js
+.env
+.DS_Store
+dist/
+build/

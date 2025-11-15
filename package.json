@@ -1,0 +1,33 @@
+{
+    "name": "easymc",
+    "version": "1.0.6",
+    "description": "An API for easymc.io, a site which allows you to use tokens to login to Minecraft accounts.",
+    "main": "index.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "node start.js"
+    },
+    "keywords": [
+        "minecraft",
+        "alts",
+        "minecraft alts",
+        "easymc",
+        "easymc.io",
+        "easymc api",
+        "easymc alts"
+    ],
+    "author": "Corman",
+    "license": "ISC",
+    "dependencies": {
+        "@types/express": "^4.17.11",
+        "express": "^4.17.1",
+        "got": "^11.8.1",
+        "minecraft-data": "^2.78.0",
+        "minecraft-protocol": "github:Cormanz/node-minecraft-protocol",
+        "mineflayer": "^3.2.0",
+        "patch-module": "^0.1.0"
+    },
+    "devDependencies": {
+        "typescript": "^4.5.0"
+    }
+}
