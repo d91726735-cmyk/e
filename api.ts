@@ -1,7 +1,5 @@
 import got from 'got';
 import { AltData, AltRedemption, ClientSettings, SessionJoin, SessionJoinServerHash, SessionJoinServerId } from './interfaces';
-import { Bot, createBot } from 'mineflayer';
-import { Client, createClient } from 'minecraft-protocol';
 
 export const defaultProxy = 'https://easymc-serverproxy.glitch.me';
 
@@ -49,32 +47,14 @@ export class Alt {
      * @param opts The options to use with `minecraft-protocol`.
      */
     createClient(opts: any) {
-        const defaults = {
-            username: this.token,
-            password: 'Password',
-            authServer: opts.proxy ?? defaultProxy,
-            sessionServer: opts.proxy ?? defaultProxy
-        };
-        return createClient({
-            ...defaults,
-            ...opts
-        } as any);
+        throw new Error('minecraft-protocol is not available in this build');
     }
     /**
      * Creates a bot with `mineflayer` that you can use to manage the bot at a higher level.
      * @param opts The options to use with `mineflayer`.
      */
     createBot(opts: any) {
-        const defaults = {
-            username: this.token,
-            password: 'Password',
-            authServer: opts.proxy ?? defaultProxy,
-            sessionServer: opts.proxy ?? defaultProxy
-        };
-        return createBot({
-            ...defaults,
-            ...opts
-        } as any);
+        throw new Error('mineflayer is not available in this build');
     }
 }
 
@@ -212,15 +192,15 @@ export class EasyMC {
      * Creates a client with `minecraft-protocol` that you can use to login to an alt and manage packets at a low level.
      * @param opts The options to use with `minecraft-protocol`.
      */
-    async createClient(token: string, opts: any): Promise<Client> {
-        return this.alt(token).then(i => i.createClient(opts));
+    async createClient(token: string, opts: any): Promise<any> {
+        throw new Error('minecraft-protocol is not available in this build');
     }
     /**
      * Creates a bot with `mineflayer` that you can use to manage the bot at a higher level.
      * @param opts The options to use with `mineflayer`.
      */
-    async createBot(token: string, opts: any): Promise<Client  | Bot> {
-        return this.alt(token).then(i => i.createBot(opts));
+    async createBot(token: string, opts: any): Promise<any> {
+        throw new Error('mineflayer is not available in this build');
     }
 }
 
