@@ -1,4 +1,4 @@
-import * as express from "express";
+import express from "express";
 import api from "./api";
 
 export const createServer = () => {
